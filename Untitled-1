@@ -1,0 +1,13 @@
+<VirtualHost *:80>
+        <Directory /root/tenderapi/tenderapi>
+            <Files wsgi.py>
+                Require all granted
+            </Files>
+        </Directory>
+        
+        WSGIDaemonProcess gochereta python-path=/root/tenderapi python-home=/root/.virtualenvs/tender
+        WSGIProcessGroup gochereta
+        WSGIScriptAlias / /root/tenderapi/tenderapi/wsgi.py
+        WSGIPythonHome /usr/bin/python3
+
+</VirtualHost>
